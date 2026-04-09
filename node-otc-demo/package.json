@@ -1,0 +1,19 @@
+{
+  "name": "otc-node-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node OTC refresh demo writing to Google Sheets",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "run:otc": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "googleapis": "^150.0.1",
+    "p-limit": "^6.1.0"
+  }
+}
