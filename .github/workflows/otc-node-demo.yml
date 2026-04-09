@@ -4,9 +4,8 @@ env:
 
 on:
   workflow_dispatch:
-  # Uncomment to run on schedule (UTC)
-  # schedule:
-  #   - cron: "*/30 * * * *"
+  schedule:
+    - cron: "*/30 * * * *"
 
 jobs:
   otc-demo:
